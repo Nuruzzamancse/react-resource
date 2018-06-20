@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>React - Component</title>
+    <title>React</title>
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
     <script src="src/js/react.min.js"></script>
     <script src="src/js/react-dom.min.js"></script>
     <script src="src/js/browser.min.js"></script>
@@ -24,6 +25,8 @@
           console.log('Removing comment');
         },
         save: function(){
+            var val = this.refs.newText.value;
+            console.log('New comment: '+ val);
             this.setState({editing: false});
 
         },
@@ -39,7 +42,7 @@
         renderForm: function () {
             return (
                 <div className="commentContainer">
-                    <textarea defaultValue={this.props.children}></textarea>
+                    <textarea ref="newText" defaultValue={this.props.children}></textarea>
                     <button onClick={this.save} className="button-success">Save</button>
                 </div>
             );
